@@ -26,6 +26,11 @@ String webPage = "";
 int gpio0_pin = D1;
 int gpio2_pin = D2;
 
+
+IPAddress tmpGateway(192, 168, 8, 1);
+IPAddress tmpIP(192, 168, 8, 13);
+IPAddress ipSubnet(255, 255, 255, 0);
+
 void setup(void){
   webPage += "<h1>ESP8266 Web Server</h1><p>Socket #1 <a href=\"socket1On\"><button>ON</button></a>&nbsp;<a href=\"socket1Off\"><button>OFF</button></a></p>";
   webPage += "<p>Socket #2 <a href=\"socket2On\"><button>ON</button></a>&nbsp;<a href=\"socket2Off\"><button>OFF</button></a></p>";
@@ -38,6 +43,7 @@ void setup(void){
   
   delay(1000);
   Serial.begin(115200);
+  WiFi.config(tmpIP, tmpGateway, ipSubnet, tmpGateway);
   WiFi.begin(ssid, password);
   Serial.println("");
 
