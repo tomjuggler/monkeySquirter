@@ -1,12 +1,12 @@
+//Monkey Squirter D1 mini code - see https://circusscientist.com for details
+//to use the web buttons version switch on D1 mini and go to http://<tmpIP>/
 
-
+//adapted from original below:
 /*********
   Rui Santos
   Complete project details at http://randomnerdtutorials.com/esp8266-web-server-with-arduino-ide/
 *********/
 //this actually works!!!!!
-//html version here: /home/tom/Documents/PROGRAMMING/HTML_JavaScript_CSS/buttons2 
-//html version with colour indicators
 
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
@@ -16,19 +16,20 @@
 MDNSResponder mdns;
 
 // Replace with your network credentials
-const char *ssid = "HUAWEI-B315-3346";
-const char *password = "T0LTE0Q24JD";
+const char *ssid = "YourRouterName";
+const char *password = "YourRouterPassword";
 
 ESP8266WebServer server(80);
 
 String webPage = "";
 
+// two options for triggering relays, you could have more or less:
 int gpio0_pin = D1;
 int gpio2_pin = D2;
 
 
-IPAddress tmpGateway(192, 168, 8, 1);
-IPAddress tmpIP(192, 168, 8, 13);
+IPAddress tmpGateway(192, 168, 8, 1); //change to router IP
+IPAddress tmpIP(192, 168, 8, 13); //you choose this depending on your router IP and configuration
 IPAddress ipSubnet(255, 255, 255, 0);
 
 void setup(void){
