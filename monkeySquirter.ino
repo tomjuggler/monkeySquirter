@@ -26,6 +26,9 @@ String webPage = "";
 // two options for triggering relays, you could have more or less:
 int gpio0_pin = D1;
 int gpio2_pin = D2;
+//try these for ESP-01: 
+//int gpio0_pin = 0; 
+//int gpio2_pin = 2;
 
 
 IPAddress tmpGateway(192, 168, 8, 1); //change to router IP
@@ -33,6 +36,7 @@ IPAddress tmpIP(192, 168, 8, 13); //you choose this depending on your router IP 
 IPAddress ipSubnet(255, 255, 255, 0);
 
 void setup(void){
+  //this is the webpage, with two buttons, one line per button:
   webPage += "<h1>ESP8266 Web Server</h1><p>Socket #1 <a href=\"socket1On\"><button>ON</button></a>&nbsp;<a href=\"socket1Off\"><button>OFF</button></a></p>";
   webPage += "<p>Socket #2 <a href=\"socket2On\"><button>ON</button></a>&nbsp;<a href=\"socket2Off\"><button>OFF</button></a></p>";
   
